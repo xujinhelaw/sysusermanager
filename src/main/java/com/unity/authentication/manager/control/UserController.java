@@ -3,9 +3,7 @@ package com.unity.authentication.manager.control;
 import com.unity.authentication.manager.pojo.User;
 import com.unity.authentication.manager.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * Created by xuhelaw on 2020/10/18.
@@ -18,5 +16,10 @@ public class UserController {
     @RequestMapping("/user/{name}")
     public User queryUserByName(@PathVariable("name") String name) {
         return userService.queryUserByName(name);
+    }
+
+    @RequestMapping(value = "/user",method = RequestMethod.PUT)
+    public void updateUserByName(@RequestBody User user){
+        userService.updateUserByName(user);
     }
 }

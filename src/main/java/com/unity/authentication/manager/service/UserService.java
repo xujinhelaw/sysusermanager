@@ -7,4 +7,6 @@ import com.unity.authentication.manager.pojo.User;
  */
 public interface UserService {
     User queryUserByName(String name);
+
+    void updateUserByName(User user);
 }

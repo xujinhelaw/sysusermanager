@@ -4,6 +4,8 @@ import com.unity.authentication.manager.dao.UserMapper;
 import com.unity.authentication.manager.pojo.User;
 import com.unity.authentication.manager.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 /**
@@ -14,7 +16,14 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserMapper userMapper;
 
+    @Cacheable(value = "user",key = "#name")
     public User queryUserByName(String name) {
+        System.out.println("Get from database!");
         return userMapper.queryUserByName(name);
+    }
+
+    @CachePut(value = "user",key = "#user.name")
+    public void updateUserByName(User user) {
+        userMapper.UpdateUserByName(user);
     }
 }
