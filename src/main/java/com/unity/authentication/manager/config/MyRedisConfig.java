@@ -38,7 +38,7 @@ public class MyRedisConfig {
     }
 
     //配置直接使用redisTemplate存入redis的对象为json数据
-    /**@Bean
+    @Bean
     public RedisTemplate<Object,Object> redisTemplate(RedisConnectionFactory redisConnectionFactory){
         RedisTemplate<Object,Object> redisTemplate = new RedisTemplate<>();
         redisTemplate.setConnectionFactory(redisConnectionFactory);
@@ -58,5 +58,4 @@ public class MyRedisConfig {
 
         return redisTemplate;
     }
-    **/
 }
