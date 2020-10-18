@@ -1,6 +1,6 @@
 package com.unity.authentication.manager.certificate;
 
-import com.unity.authentication.manager.handler.exception.UamException;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -9,8 +9,12 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 public class Certificate {
+    @Value("${cas.url}")
+    private String casUrl;
+
     @RequestMapping(value = "/certificate")
     public String certificate() {
-        return "certificate";
+        return "certificate" + casUrl;
     }
+
 }
