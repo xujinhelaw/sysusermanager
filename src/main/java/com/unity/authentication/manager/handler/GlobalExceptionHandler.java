@@ -29,7 +29,7 @@ public class GlobalExceptionHandler {
     public Map<String, Object> handlerException(Exception ex) {
         Map<String,Object> map = new HashMap<>();
         map.put("errorCode","1000");
-        map.put("errorMsg","System Error!");
+        map.put("errorMsg",ex.getCause());
         return map;
     }
 }
