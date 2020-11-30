@@ -10,3 +10,5 @@ spring:
   h2:
     console:
       enabled: true #开启web console功能
+server:
+  port: 8088

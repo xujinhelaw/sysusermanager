@@ -1,5 +1,7 @@
 package com.unity.authentication.manager.control;
 
+import com.unity.authentication.manager.common.CommonResult;
+import com.unity.authentication.manager.pojo.Login;
 import com.unity.authentication.manager.pojo.User;
 import com.unity.authentication.manager.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,8 +20,14 @@ public class UserController {
         return userService.queryUserByName(name);
     }
 
-    @RequestMapping(value = "/user",method = RequestMethod.PUT)
-    public void updateUserByName(@RequestBody User user){
+    @RequestMapping(value = "/user", method = RequestMethod.PUT)
+    public void updateUserByName(@RequestBody User user) {
         userService.updateUserByName(user);
+    }
+
+    @RequestMapping(value = "/admin/login", method = RequestMethod.POST)
+    @ResponseBody
+    public CommonResult login(@RequestBody Login login) {
+        return CommonResult.success("admin");
     }
 }
