@@ -1,0 +1,13 @@
+myspring:
+  mydatasource:
+    driver-class-name: org.h2.Driver
+    schema: classpath:db/schema.sql
+    data: classpath:db/data.sql
+    url: jdbc:h2:mem:test
+    username: sa
+    password: sa
+  myh2:
+    console:
+      enabled: true
+myserver:
+  port: 8088
