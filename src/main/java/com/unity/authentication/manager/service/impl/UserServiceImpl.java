@@ -8,6 +8,9 @@ import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
+import java.util.Arrays;
+import java.util.List;
+
 /**
  * Created by xuhelaw on 2020/10/18.
  */
@@ -25,5 +28,9 @@ public class UserServiceImpl implements UserService {
     @CachePut(value = "user",key = "#user.name")
     public void updateUserByName(User user) {
         userMapper.UpdateUserByName(user);
+    }
+
+    public List<User> queryUsersByUserIds(String userIds) {
+        return userMapper.queryUserByUserIds(userIds);
     }
 }

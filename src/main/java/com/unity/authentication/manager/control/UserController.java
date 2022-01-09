@@ -1,11 +1,16 @@
 package com.unity.authentication.manager.control;
 
 import com.unity.authentication.manager.common.CommonResult;
+import com.unity.authentication.manager.common.verification.annotation.UserIdsSize;
+import com.unity.authentication.manager.pojo.BatchReq;
 import com.unity.authentication.manager.pojo.Login;
 import com.unity.authentication.manager.pojo.User;
 import com.unity.authentication.manager.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * Created by xuhelaw on 2020/10/18.
@@ -29,5 +34,10 @@ public class UserController {
     @ResponseBody
     public CommonResult login(@RequestBody Login login) {
         return CommonResult.success("admin");
+    }
+
+    @RequestMapping(value = "/users", method = RequestMethod.POST)
+    public List<User> queryUsersByUserIds(@RequestBody @Validated BatchReq batchReq){
+        return userService.queryUsersByUserIds(batchReq.getUserIds());
     }
 }

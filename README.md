@@ -7,3 +7,5 @@ window版本redis下载地址
 https://pan.baidu.com/s/1y6MxtWpmRDPPcLJ75YhikA 提取码：vkee
 
 postmandata文件为本工程所有rest接口的postman接口测试数据
+
+项目启动方式
