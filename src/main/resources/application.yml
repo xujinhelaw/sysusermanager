@@ -10,5 +10,8 @@ spring:
   h2:
     console:
       enabled: true #开启web console功能
+  messages:
+    basename: i18n/message
+    encoding: UTF-8
 server:
   port: 8088

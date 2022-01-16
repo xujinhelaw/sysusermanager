@@ -1,7 +1,6 @@
 package com.unity.authentication.manager.control;
 
 import com.unity.authentication.manager.common.CommonResult;
-import com.unity.authentication.manager.common.verification.annotation.UserIdsSize;
 import com.unity.authentication.manager.pojo.BatchReq;
 import com.unity.authentication.manager.pojo.Login;
 import com.unity.authentication.manager.pojo.User;
