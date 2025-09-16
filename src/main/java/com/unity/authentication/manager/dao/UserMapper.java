@@ -6,8 +6,6 @@ import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.SelectProvider;
 import org.apache.ibatis.annotations.Update;
-import org.springframework.cache.annotation.CachePut;
-import org.springframework.cache.annotation.Cacheable;
 
 import java.util.List;
 
@@ -20,7 +18,7 @@ public interface UserMapper {
     User queryUserByName(@Param("name") String name);
 
     @Update("Update user SET id = #{user.id},name = #{user.name},age=#{user.age},email=#{user.email} WHERE name = #{user.name}")
-    void UpdateUserByName(@Param("user")User user);
+    boolean updateUserByName(@Param("user") User user);
 
     @SelectProvider(type = UserSqlProvider.class, method = "queryUsersByUserIds")
     List<User> queryUserByUserIds(@Param("userIds") String userIds);

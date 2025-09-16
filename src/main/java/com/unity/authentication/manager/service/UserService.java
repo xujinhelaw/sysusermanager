@@ -10,7 +10,7 @@ import java.util.List;
 public interface UserService {
     User queryUserByName(String name);
 
-    void updateUserByName(User user);
+    boolean updateUserByName(User user);
 
     List<User> queryUsersByUserIds(String userIds);
 }
