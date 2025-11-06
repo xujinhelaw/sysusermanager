@@ -12,6 +12,8 @@ import java.io.IOException;
  * 测试方法：post http://127.0.0.1:8088/xml/user content-type修改为application/x-www-form-urlencoded
  * 在过滤器中奖content-type修改为 application/xml
  * 在FilterConfig中奖filter注册到springboot,并定义拦截的url匹配规则
+ * 关于content-type的介绍
+ *  https://blog.csdn.net/qq_27674439/article/details/90413148
  */
 @Order(1)
 public class ModifyContentTypeFilter implements javax.servlet.Filter {
