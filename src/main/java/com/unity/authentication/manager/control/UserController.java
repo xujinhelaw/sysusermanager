@@ -49,6 +49,11 @@ public class UserController {
         System.out.printf(request.getContentType());
     }
 
+    /**
+     * 接收不带Content-Type头或者Content-Type默认值为"application/x-www-form-urlencoded"的RESTFUL请求
+     * 只需要将参数改为HttpEntity<String> json通过接收
+     * @param json 接收到的请求参数
+     */
     @PostMapping(value = "/xm/user", consumes = {MediaType.APPLICATION_XML_VALUE})
     public void updateUserByXm(HttpEntity<String> json) {
         System.out.printf(json.toString());
