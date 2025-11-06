@@ -32,6 +32,7 @@ public class GlobalExceptionHandler {
         return map;
     }
 
+    /*  这个全局异常处理，会把整个报错堆栈给吞掉，这里只是定制异常报错的示例
     @ExceptionHandler(Exception.class)
     @ResponseBody
     public Map<String, Object> handlerException(Exception ex) {
@@ -39,7 +40,7 @@ public class GlobalExceptionHandler {
         map.put("errorCode","1000");
         map.put("errorMsg",ex.getCause());
         return map;
-    }
+    }*/
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
     @ResponseBody

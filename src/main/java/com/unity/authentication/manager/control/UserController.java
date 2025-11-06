@@ -6,9 +6,12 @@ import com.unity.authentication.manager.pojo.Login;
 import com.unity.authentication.manager.pojo.User;
 import com.unity.authentication.manager.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.MediaType;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 /**
@@ -21,6 +24,7 @@ public class UserController {
 
     @RequestMapping("/user/{name}")
     public User queryUserByName(@PathVariable("name") String name) {
+        System.out.printf(name);
         return userService.queryUserByName(name);
     }
 
@@ -36,7 +40,18 @@ public class UserController {
     }
 
     @RequestMapping(value = "/users", method = RequestMethod.POST)
-    public List<User> queryUsersByUserIds(@RequestBody @Validated BatchReq batchReq){
+    public List<User> queryUsersByUserIds(@RequestBody @Validated BatchReq batchReq) {
         return userService.queryUsersByUserIds(batchReq.getUserIds());
     }
+
+    @PostMapping(value = "/xml/user", consumes = {MediaType.APPLICATION_FORM_URLENCODED_VALUE})
+    public void updateUserByXml(HttpServletRequest request) {
+        System.out.printf(request.getContentType());
+    }
+
+    @PostMapping(value = "/xm/user", consumes = {MediaType.APPLICATION_XML_VALUE})
+    public void updateUserByXm(HttpEntity<String> json) {
+        System.out.printf(json.toString());
+    }
+
 }
